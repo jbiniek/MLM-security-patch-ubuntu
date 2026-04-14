@@ -1,4 +1,5 @@
-Jak zautomatyzować użycie skryptu patch_ubuntu_group.py przy pomocy systemd timer (czyli nowocześniejsza wersja cron). Idea jest taka, żeby zdefiniować własną "usługę systemową", która zajmie się powtarzaniem wykonania skryptu.
+Poniżej są instrukcje jak zautomatyzować użycie skryptu patch_ubuntu_group.py używając systemd timer (czyli taka nowocześniejsza wersja cron).
+Zasadnicza idea jest taka, żeby zdefiniować własną "usługę systemową", która zajmie się powtarzaniem wykonania skryptu.
 
 ***
 
