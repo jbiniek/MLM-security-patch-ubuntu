@@ -36,7 +36,7 @@ Type=oneshot
 ExecStart=/usr/bin/python3 /usr/local/bin/susemgr-patch.py
 
 # Opcjonalne, ale zalecane: uruchom jako użytkownik bez uprawnień roota, jeśli wolisz
-# User=twoj_uzytkownik
+# User=jakis_uzytkownik
 ```
 
 ### 3. Utworzenie timera systemd
@@ -71,7 +71,7 @@ WantedBy=timers.target
 
 ### 4. Włączenie i uruchomienie timera
 
-Teraz przeładuj demona `systemd`, aby zauważył Twoje nowe pliki, i włącz timer.
+Teraz przeładuj demona `systemd`, aby zauważył nowe pliki, i włącz timer.
 
 ```bash
 # Przeładuj systemd, aby rozpoznał nowe pliki jednostek
@@ -83,13 +83,13 @@ sudo systemctl enable --now susemgr-patch.timer
 
 ### 5. Weryfikacja i logi
 
-Możesz zweryfikować, czy Twój timer jest poprawnie zaplanowany, wyświetlając listę wszystkich aktywnych timerów:
+Możesz zweryfikować, czy timer jest poprawnie zaplanowany, wyświetlając listę wszystkich aktywnych timerów:
 
 ```bash
 systemctl list-timers | grep susemgr-patch
 ```
 
-Ponieważ skrypt działa poprzez `systemd`, wszystkie komunikaty z funkcji `print()` w Twoim skrypcie Pythona zostaną automatycznie przechwycone przez dziennik systemowy. Po uruchomieniu skryptu możesz w dowolnej chwili sprawdzić jego wynik za pomocą komendy:
+Ponieważ skrypt usługi działa poprzez `systemd`, wszystkie komunikaty z funkcji `print()` w skrypcie Pythona zostaną automatycznie przechwycone przez dziennik systemowy. Po uruchomieniu skryptu możesz sprawdzić jego wynik za pomocą komendy:
 
 ```bash
 sudo journalctl -u susemgr-patch.service
